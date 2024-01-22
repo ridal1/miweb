@@ -3,9 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi web</title>
+    <title>Your Landing Page Title</title>
 </head>
 <body>
-    <h1>Mi web</h1>
+    <header>
+        <select onchange="changeLanguage(this.value)">
+            <option value="en">English</option>
+            <option value="es">Español</option>
+            <option value="fr">Français</option>
+          </select>
+        <nav>
+            <ul>
+                <li><a href="#" class="translate" data-translate-key="home">Home</a></li>
+                <li><a href="#" class="translate" data-translate-key="about">About</a></li>
+                <li><a href="#" class="translate" data-translate-key="contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+  
+    <main>
+        <h1 class="translate" data-translate-key="title">Welcome to Your Landing Page</h1>
+        <p class="translate" data-translate-key="description">This is a sample landing page in English.</p>
+    </main>
+    <footer>
+        <p class="translate" data-translate-key="footerdes">© 2024 Your Company Name</p>
+    </footer>
+    <script>
+
+        // Define the dictionary object
+var dictionary = {
+    "en": {
+        "title": "Welcome to our website",
+        "description": "This is a sample landing page in English",
+        "home": "Home",
+        "about": "About",
+        "contact": "Contact",
+        "footerdes": " © 2024 Your Company Name"
+    },
+    "es": {
+        "title": "Bienvenido a nuestro sitio web",
+        "description": "Esta es una página de destino de muestra en español",
+        "home": "Inicio",
+        "about": "Acerca de",
+        "contact": "Contacto",
+        "footerdes": " © 2024 El nombre de tu compañía"
+       
+    },
+    "fr": {
+        "title": "Bienvenue sur notre site web",
+        "description": "Ceci est une page de destination d'exemple en français",
+        "home": "Accueil",
+        "about": "À propos",
+        "contact": "Contact-nous",
+        "footerdes": "© 2024 Nom de votre entreprise"
+
+        
+    }
+};
+
+// Function to change the language
+function changeLanguage(lang) {
+    // Get all elements with the class 'translate'
+    var elements = document.getElementsByClassName('translate');
+    // Loop through each element and replace the text with the corresponding translation
+    for (var i = 0; i < elements.length; i++) {
+        var key = elements[i].getAttribute('data-translate-key');
+        elements[i].innerHTML = dictionary[lang][key];
+    }
+}
+
+// Example usage
+/* changeLanguage('fr'); */
+
+    </script>
 </body>
 </html>
